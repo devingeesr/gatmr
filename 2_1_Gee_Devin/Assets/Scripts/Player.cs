@@ -3,11 +3,13 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public bool rushCount = 0;
-	public health = health; 
-	public bool partCount = 0;
+	public int rushCount = 0;
+	public int drushCount = 0;
 
+	public int partCount = 0;
 
+	public int maxHealth = 100;
+	public int curHealth = 100;
 	// Use this for initialization
 	void Start () {
 	
@@ -15,25 +17,26 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
 
+	}
 	void OnTriggerEnter(Collider other) {
 		// When the player collides into the cookie 
 	    if (other.tag == "miniCookie") {
-	        score += 10;
+	        maxHealth += 10;
 	        Destroy(other.gameObject);
 	    }
 	    if (other.tag == "Cookie") {
-	        score += 25;
+	        maxHealth += 25;
 	        Destroy(other.gameObject);
 	    }
 	    if (other.tag == "megaCookie") {
-	        score += 50;
+	        maxHealth += 50;
 	        Destroy(other.gameObject);
 	    }    
-
-	    // When the player reaches the goal
+		if (other.tag == "robot_1") {
+	        maxHealth -= 10;
+		}
+		// These code bellow is the completion or death 
 	   	if (other.tag == "Finish") {
 	        Application.LoadLevel("stats_Screen");
 		}

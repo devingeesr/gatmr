@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Control : MonoBehaviour {
 
+	CharacterController controller;
 	Vector3 velocity;
 	public float speed 		= 0.6f;
 	public float airMove	= 0.08f;
@@ -13,15 +14,15 @@ public class Control : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+
+		controller = GetComponent<CharacterController>();
 	}
-	
 	// Update is called once per frame
 	void Update () {
 		// Controls the timing of the
 		velocity -= transform.up * gravity;
 		// Apply movement all at once
-		GetComponent<CharacterController>().Move(velocity);
+		controller.Move(velocity);
 		// Walk forward 
 		if(Input.GetKey("s") || (Input.GetKey("right"))) {
 			velocity += transform.forward * airMove;
@@ -32,16 +33,13 @@ public class Control : MonoBehaviour {
 		}
 		// Code for character movement
 		// This componet check to see if the character is grounded
-		if(GetComponent<CharacterController>().isGrounded) {
-			//
+		if(controller.isGrounded) {
 			velocity = Vector3.zero;
-
 			// Walk forward 
 			if(Input.GetKey("s") || (Input.GetKey("right"))) {
 				velocity += transform.forward * 0.2f;
 			}
 			// Run foward
-
 			//walk backward
 			if(Input.GetKey("a") || (Input.GetKey("left"))) {
 				velocity -= transform.forward * 0.2f;
