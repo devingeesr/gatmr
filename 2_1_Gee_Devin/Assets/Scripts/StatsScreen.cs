@@ -16,11 +16,7 @@ public class StatsScreen : MonoBehaviour {
     		if(Minutes >= 1){
     			Minutes-- ;
     		}
-    		else{
-    			Minutes = 0;
-    			Seconds = 0;
-    			Application.LoadLevel("Title_Screen");
-    		}
+
     	}
     	else{
     		Seconds -= Time.deltaTime;

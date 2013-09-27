@@ -1,26 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class gamefuntions : MonoBehaviour {
+public class Gamefunctions : MonoBehaviour {
 
-	public GameObject otherGameObject;
 
-	private Player player;
-	private Control control;
+	// varable to use for accessing the sugarrush script
+	private Sugarrush srscript;
 
-	// Use this for initialization
-	void Awake () {
-		player = GetComponent<Player>();
-		control = otherGameObject.GetComponent<Control>();
-	}
+	public float timer = 120f;
+    float startTime;
+    TextMesh timerText;
+    private Display display;
+
 	// Use this for initialization
 	void Start () {
-
+		srscript = gameObject.GetComponent<Sugarrush>();
+		timerText = GetComponent<TextMesh>();
+        startTime = timer;
 	}
 	// Update is called once per frame
 	void Update () {
-		if (player.curHealth == 0){
+
+	}
+
+
+
+		if(srscript.rushbar <= 0){
 			Application.LoadLevel("death_Screen");
-		}
+		}		
 	}
 }
