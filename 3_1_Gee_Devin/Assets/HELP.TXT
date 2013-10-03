@@ -1,0 +1,38 @@
+=================================
+HELP GUIDE
+=================================
+A smal ref guide item that are used.
+=================================
+Assingment Operators
+=================================
+=	this idnetifer has this data
++=	x = x+y
+-=	X = x-y
+*=
+/=
+%=
+=================================
+Arithmetic Operators 
+=================================
++	Addition
+-	Subtraction
+*	Multiplication
+/	Division
+%	Modulus
+++	(+1)
+--	(-1)
+=================================
+Comparison Operators
+=================================
+==	Is equal to 
+!= 	Not equal to
+>	Greater than
+<	Less Than
+>=	Greater than equal to
+<=	Less than equal to
+=================================
+Logical Operrators
+=================================
+&&	And
+||	Or
+!	Not
