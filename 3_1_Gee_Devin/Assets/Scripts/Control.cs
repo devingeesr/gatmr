@@ -6,8 +6,8 @@ public class Control : MonoBehaviour {
 	CharacterController controller;
 	Vector3 velocity;
 	public float speed 		= 1.0f;
-	public float airMove	= 1.0f;
-	public float jumpSpeed	= 1.0f;
+	public float airMove	= 0.2f;
+	public float jumpSpeed	= 8.0f;
 	public float jumpCount	= 0.0f;
 	public float maxJump	= 2.0f;
 	public float gravity	= 1.0f;
@@ -25,24 +25,24 @@ public class Control : MonoBehaviour {
 		controller.Move(velocity);
 		// Walk forward 
 		if(Input.GetKey("s") || (Input.GetKey("right"))) {
-			velocity += transform.forward * airMove;
+			velocity -= transform.forward * airMove;
 		}
 		//walk backward
 		if(Input.GetKey("a") || (Input.GetKey("left"))) {
-			velocity -= transform.forward * airMove;
+			velocity += transform.forward * airMove;
 		}
 		// Code for character movement
 		// This componet check to see if the character is grounded
 		if(controller.isGrounded) {
 			velocity = Vector3.zero;
 			// Walk forward 
-			if(Input.GetKey("a") || (Input.GetKey("left"))) {
-				velocity += transform.forward * 2f;
+			if(Input.GetKey("s") || (Input.GetKey("right"))) {
+				velocity -= transform.forward * 2f;
 			}
 			// Run foward
 			//walk backward
-			if(Input.GetKey("s") || (Input.GetKey("right"))) {
-				velocity -= transform.forward * 2f;
+			if(Input.GetKey("a") || (Input.GetKey("left"))) {
+				velocity += transform.forward * 2f;
 			}
 			// This controls the height of the jump
 			if(Input.GetKey("space") || (Input.GetKey("up"))) {

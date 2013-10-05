@@ -17,7 +17,9 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if(srscript.rushbar <= 0){
+			Application.LoadLevel("death_Screen");
+		}
 	}
 	void OnTriggerEnter(Collider other) {
 		// When the player collides into the cookie 

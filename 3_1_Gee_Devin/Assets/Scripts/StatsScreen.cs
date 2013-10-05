@@ -13,12 +13,15 @@ public class StatsScreen : MonoBehaviour {
     */
 	public float Seconds       = 15;
 	public float Minutes       = 0;
-    private Sugarrush          srscript;
+    //private Sugarrush          srscript;
     //static public int rushScore = srscript.rushbar;
 
     void Start() {
         //gfsripts = gameObject.GetComponent<gfsripts>();
-        srscript    = gameObject.GetComponent<Sugarrush>(); 
+        //srscript    = gameObject.GetComponent<Sugarrush>(); 
+
+        guiText.text = "You have completed the level here are your stats";
+    
     }
  	
     void Update(){
@@ -27,13 +30,17 @@ public class StatsScreen : MonoBehaviour {
     		if(Minutes >= 1){
     			Minutes-- ;
     		}
-
-    	}
-    	else{
-    		Seconds -= Time.deltaTime;
-    	}
-    }
+            else{
+                Minutes = 0;
+                Seconds = 0;
+                Application.LoadLevel("Title_Screen");
+            }
+        }
+        	else{
+        		Seconds -= Time.deltaTime;
+        	}
     //void OnGUI{
     //    GUILayout.Label(new Rect(10,10,100,20)"rushScore");
     //}
+    }
 }
