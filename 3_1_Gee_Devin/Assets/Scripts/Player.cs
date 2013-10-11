@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Player : MonoBehaviour {
@@ -21,33 +21,35 @@ public class Player : MonoBehaviour {
 			Application.LoadLevel("death_Screen");
 		}
 	}
-	void OnTriggerEnter(Collider other) {
+	void OnTriggerEnter(Collider addCookie) {
 		// When the player collides into the cookie 
-	    if (other.tag == "miniCookie") {
+	    if (addCookie.tag == "miniCookie") {
 	        srscript.rushbar += 10;
-	        Destroy(other.gameObject);
+	        Destroy(addCookie.gameObject);
 	    }
-	    if (other.tag == "Cookie") {
+	    if (addCookie.tag == "Cookie") {
 	        srscript.rushbar += 25;
-	        Destroy(other.gameObject);
+	        Destroy(addCookie.gameObject);
 	    }
-	    if (other.tag == "megaCookie") {
+	    if (addCookie.tag == "megaCookie") {
 	        srscript.rushbar += 50;
-	        Destroy(other.gameObject);
-	    }    
-		if (other.tag == "robot_1") {
+	        Destroy(addCookie.gameObject);
+	    } 
+		if (addCookie.tag == "robotA") {
 	        srscript.rushbar -= 10;
+		}	       
+		if (addCookie.tag == "disEnemy") {
+	        Destroy(addCookie.gameObject);
 		}
-		if (other.tag == "kill") {
-			srscript.rushbar -= 10000;
-	        Destroy(other.gameObject);
-		}
-		if (other.tag == "openDoor") {
+		if (addCookie.tag == "openDoor") {
 	        srscript.rushbar -= 10;
 		}
 		// These code bellow is the completion or death 
-	   	if (other.tag == "Finish") {
+	   	if (addCookie.tag == "Finish") {
 	        Application.LoadLevel("stats_Screen");
+		}
+		if (addCookie.tag == "instDeath") {
+			Application.LoadLevel("Gameover");
 		}
 	}
 }

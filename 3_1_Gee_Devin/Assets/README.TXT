@@ -1,6 +1,6 @@
 Devin_Gee
 GAM605
-09/22/2013 (Date of posting)
+10/06/2013 (Date of posting)
  
 NOTE: Make sure that you fill out all info completely! Also, please do not use word wrap. 
 Don't have lines in the README.TXT longer than 120 chars wide. 
@@ -8,7 +8,7 @@ Don't have lines in the README.TXT longer than 120 chars wide.
 
 
 
-THIS PROJECT ARCHIVE: assignment3.1_v3.0.zip
+THIS PROJECT ARCHIVE: assignment3.1_v3.1.zip
  
 SCENE FILE TO LAUNCH GAME(Main menu if applicable): Title_Screen.unity
  
@@ -36,17 +36,13 @@ FEEDBACK REQUESTED(WIP):
 
 
 KNOWN ISSUES:
-Errors:
-NullReferenceException: Object reference not set to an instance of an object
-Sugarrush.Update () (at Assets/Scripts/Sugarrush.cs:19)
-
-
 
 Issues:
 No death floor
 stop camrea movement at goal for set time
 no stats display in the page
 player can still move on pause screen
+Collision for objects robots and spikes are not responding 
 
 
  
