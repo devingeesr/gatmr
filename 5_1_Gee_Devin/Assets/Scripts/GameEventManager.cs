@@ -4,11 +4,16 @@ using System.Collections;
 public class GameEventManager : MonoBehaviour {
 
 		public delegate void GameEvent ();
-		public static event GameEvent GameStart, GameOver;
+		public static event GameEvent GameDiff, GameStart, GameOver;
 
 		public static void TriggerGameStart () {
 			if(GameStart != null){
 				GameStart();
+			}
+		}
+		public static void TriggerGameDiff () {
+			if(GameDiff != null){
+				GameDiff();
 			}
 		}
 		public static void TriggerGameOver () {
